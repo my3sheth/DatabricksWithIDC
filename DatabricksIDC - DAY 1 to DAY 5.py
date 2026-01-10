@@ -79,3 +79,56 @@ print("\n" + "="*60)
 print("SAMPLE DATA (First 5 rows):")
 print("="*60)
 df.show(5, truncate=False)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ##DAY 1
+
+# COMMAND ----------
+
+# Create simple DataFrame
+data = [("iPhone", 999), ("Samsung", 799), ("MacBook", 1299)]
+df = spark.createDataFrame(data, ["product", "price"])
+df.show()
+
+# Filter expensive products
+df.filter(df.price > 1000).show()
+
+# COMMAND ----------
+
+path = "/Volumes/workspace/ecommerce/ecommerce_data/2019-Oct.csv"
+
+df = spark.read.option("header", True)\
+               .option("inferSchema", True)\
+               .csv(path)
+
+print ("Oct 2019 metadata:\n")
+df.printSchema()
+
+print("\nOct 2019 data:\n")
+
+df.show(5, truncate=True, vertical=False)
+
+# COMMAND ----------
+
+path_n = "/Volumes/workspace/ecommerce/ecommerce_data/2019-Nov.csv"
+
+df_n = spark.read.option("header", True)\
+               .option("inferSchema", True)\
+               .csv(path_n)
+
+print ("Nov 2019 metadata:\n")
+df_n.printSchema()
+
+print("\nNov 2019 data:\n")
+
+df_n.show(5, truncate=True, vertical=False)
+
+# COMMAND ----------
+
+df.select("event_type", "price").show (5)
+
+# COMMAND ----------
+
+df_n.selectExpr("price * 2 as double_price").show(5)
