@@ -340,11 +340,154 @@
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "e087eebb",
+      "displayName": "Global Filters",
+      "layout": [
+        {
+          "widget": {
+            "name": "4db616a5",
+            "queries": [
+              {
+                "name": "dashboards/01f0f3a0eb8f1137a09268035d765778/datasets/01f0f3a1608d1e398ee5dd1992084404_revenue",
+                "query": {
+                  "datasetName": "ac2a0fcc",
+                  "fields": [
+                    {
+                      "name": "min(revenue)",
+                      "expression": "MIN(`revenue`)"
+                    },
+                    {
+                      "name": "max(revenue)",
+                      "expression": "MAX(`revenue`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "range-slider",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "revenue",
+                    "queryName": "dashboards/01f0f3a0eb8f1137a09268035d765778/datasets/01f0f3a1608d1e398ee5dd1992084404_revenue"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": false
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "2692ed98",
+            "queries": [
+              {
+                "name": "dashboards/01f0f3a0eb8f1137a09268035d765778/datasets/01f0f3a10f7b176386e8bfc409bbbd6e_event_date",
+                "query": {
+                  "datasetName": "48e4785e",
+                  "fields": [
+                    {
+                      "name": "event_date",
+                      "expression": "`event_date`"
+                    },
+                    {
+                      "name": "event_date_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-date-range-picker",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "event_date",
+                    "queryName": "dashboards/01f0f3a0eb8f1137a09268035d765778/datasets/01f0f3a10f7b176386e8bfc409bbbd6e_event_date"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true
+              },
+              "selection": {
+                "defaultSelection": {
+                  "range": {
+                    "dataType": "DATE",
+                    "min": {
+                      "value": "2019-10-01T00:00:00.000"
+                    },
+                    "max": {
+                      "value": "2019-11-01T23:59:59.999"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 1,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS"
     }
   ],
   "uiSettings": {
+    "locale": "en-IN",
     "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      "canvasBackgroundColor": {
+        "light": "#FAFAFB",
+        "dark": "#1F272D"
+      },
+      "widgetBackgroundColor": {
+        "light": "#FFFFFF",
+        "dark": "#11171C"
+      },
+      "widgetBorderColor": {
+        "dark": "#FFFFFF"
+      },
+      "fontColor": {
+        "light": "#11171C",
+        "dark": "#E8ECF0"
+      },
+      "selectionColor": {
+        "light": "#2272B4",
+        "dark": "#8ACAFF"
+      },
+      "visualizationColors": [
+        "#077A9D",
+        "#FFAB00",
+        "#00A972",
+        "#FF3621",
+        "#8BCAE7",
+        "#AB4057",
+        "#99DDB4",
+        "#FCA4A1",
+        "#919191",
+        "#BF7080"
+      ],
+      "widgetHeaderAlignment": "LEFT"
     },
     "applyModeEnabled": false
   }
